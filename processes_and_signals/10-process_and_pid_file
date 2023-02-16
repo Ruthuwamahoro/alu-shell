@@ -5,7 +5,7 @@
 #Displays I hate the kill command when receiving a SIGTERM signal
 #Displays Y U no love me?! when receiving a SIGINT signal
 #Deletes the file /var/run/myscript.pid and terminates itself when receiving a SIGQUIT or SIGT#ERM signal
-myfile=/var/run/myscript.pid
+myfile="/var/run/myscript.pid"
 
 if [ ! -e "$myfile" ]; then
   touch "$myfile"
