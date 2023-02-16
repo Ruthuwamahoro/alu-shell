@@ -6,18 +6,17 @@
 #Displays Y U no love me?! when receiving a SIGINT signal
 #Deletes the file /var/run/myscript.pid and terminates itself when receiving a SIGQUIT or SIGT#ERM signal
 myfile="/var/run/myscript.pid"
-
-if [ ! -e "$myfile" ]; then
-  touch "$myfile"
+if [ ! -e "$myfile" ]; 
+then	
+   touch "$myfile"
 fi
 sleep 2 &
 echo "$!" > "$myfile"
-while true;
-do
-   echo "To infinity and beyond"
-   sleep 2   
-   trap 'echo "I hate the kill command"; rm "$file"; exit' SIGTERM SIGQUIT
-   trap "echo Y U no love me?!"
-done   
-  
+while true; do
+  echo "To infinity and beyond"
+  sleep 2
+  trap 'echo "I hate the kill command"; rm "$myfile"; exit' SIGTERM SIGQUIT
+  trap "echo Y U no love me?!" SIGINT
+done
+
 
